@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #7ba2d7;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#restart{
+    width: 120px;
+    height: 40px;
+    background-color: rgb(11, 11, 137);
+    border-radius: 10px;
+    color: white;
+    border: none;
+}
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+}
+.scoreboard {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.scoreboard p {
+    margin: 5px 0;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .back {
+    background-color: #007bff;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+@media (max-width: 768px) {
+    .game-board {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); 
+        grid-gap: 8px; 
+    }
+
+    .scoreboard {
+        font-size: 16px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .game-board {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); 
+        grid-gap: 6px; 
+    }
+
+    .scoreboard {
+        font-size: 14px; 
+        margin-bottom: 15px; 
+    }
+}
